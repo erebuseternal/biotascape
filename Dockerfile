@@ -19,7 +19,9 @@ RUN pip install pandas==1.0.1 \
 				scikit-learn==0.22.1 \
 				seaborn==0.10.0 \
 				jupyterlab==1.2.6 \
-                tqdm==4.43.0
+                tqdm==4.43.0 \
+                flask==1.1.2 \
+                flask-bootstrap==3.3.7.1
 
 # setting up ssh server
 RUN apt-get update && apt-get install -y openssh-server
@@ -33,7 +35,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 22 8888
+EXPOSE 22 8888 5000
 
 # rmate for piping sublime
 RUN wget -O /usr/local/bin/rmate https://raw.github.com/aurora/rmate/master/rmate

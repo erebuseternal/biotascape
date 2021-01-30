@@ -6,7 +6,7 @@
 `docker build -t "mgietzmann/biotascape:latest" .`
 
 #### Running the Image
-`docker run -p 8888:8888 -p 8000:22 -d --name=biotascape mgietzmann/biotascape:latest`
+`docker run -p 8888:8888 -p 8000:22 -p 5000:5000 -d --name=biotascape mgietzmann/biotascape:latest`
 
 #### SSH into the Container
 `ssh root@localhost -p 8000`
