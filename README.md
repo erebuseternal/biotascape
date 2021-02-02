@@ -34,3 +34,33 @@ Then with the container running, open a tunnel with:
 
 Then within the container run `rmate <file>` to pipe that file up to sublime.
 
+## Setting Up SSL
+
+Taken from https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
+
+### Generate the Certificate
+
+```bash
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+```
+
+Fill out the info
+
+```bash
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:Massachusetts
+Locality Name (eg, city) []:Quincy
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Biotascape
+Organizational Unit Name (eg, section) []:Developers
+Common Name (e.g. server FQDN or YOUR name) []:Biotascape
+Email Address []:marcelsanders96@gmail.com
+```
+
+This will create a `key.pem` and `cert.pem` file. Simply move those to the top directory of the `webapp` folder and you're good to go!
