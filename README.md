@@ -64,3 +64,13 @@ Email Address []:marcelsanders96@gmail.com
 ```
 
 This will create a `key.pem` and `cert.pem` file. Simply move those to the top directory of the `webapp` folder and you're good to go!
+
+## User Login (for now)
+For now we'll be using a sqlite database to store everything as there's no need for anything more exciting than that while we're developing stuff. User login will all be there but you just need to setup the database. You can do so by going into the top directory of biotascape and going into a python interactive session and executing 
+
+```python
+from webapp import db, create_app
+db.create_all(app=create_app())
+```
+
+The login setup was drawn from this lovely tutorial: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
