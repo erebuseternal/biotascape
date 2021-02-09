@@ -23,7 +23,9 @@ RUN pip install pandas==1.0.1 \
 				jupyterlab==1.2.6 \
                 tqdm==4.43.0 \
                 flask==1.1.2 \
-                flask-bootstrap==3.3.7.1
+                flask-bootstrap==3.3.7.1 \
+                Flask-Login==0.5.0 \
+                Flask-SQLAlchemy==2.4.4
 
 # setting up ssh server
 RUN apt-get update && apt-get install -y openssh-server
