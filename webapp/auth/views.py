@@ -1,9 +1,10 @@
 from flask import render_template, redirect, url_for, flash, request
-from flask_login import login_user
+from flask_login import login_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import auth
 from ..models import User
 from .. import db
+from .. import oauth
 
 @auth.route('/signup')
 def signup():
@@ -46,3 +47,19 @@ def login_post():
     
     login_user(user, remember=True)
     return redirect(url_for('main.profile'))
+
+@auth.route('/authenticate')
+@login_required
+def authenticate():
+    redirect_uri = url_for('auth.callback', _external=True)
+    return oauth.inaturalist.authorize_redirect(redirect_uri)
+
+@auth.route('/authenticate/callback')
+@login_required
+def callback():
+    token = oauth.inaturalist.authorize_access_token()
+    access_token = token['access_token']
+    current_user.access_token = access_token
+    db.session.commit()
+    return redirect(url_for('main.profile'))
+

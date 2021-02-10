@@ -74,3 +74,14 @@ db.create_all(app=create_app())
 ```
 
 The login setup was drawn from this lovely tutorial: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+
+## iNaturalist Auth
+
+### Some Notes
+If you run into issues with the `cryptography` library this worked for me:
+
+```bash
+pip install cryptography --force-reinstall
+```
+
+Here's the tutorial I drew from: https://github.com/authlib/demo-oauth-client/blob/master/flask-google-login/app.py
