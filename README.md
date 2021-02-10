@@ -77,6 +77,13 @@ The login setup was drawn from this lovely tutorial: https://www.digitalocean.co
 
 ## iNaturalist Auth
 
+You'll need to setup the following environment variables for the iNaturalist Auth to work. Add them to your `~/.bashrc` file so that they're always ready to go!
+
+```bash
+export APPLICATION_ID="<APP_ID>"
+export APPLICATION_SECRET="<APP_SECRET>"
+```
+
 ### Some Notes
 If you run into issues with the `cryptography` library this worked for me:
 
